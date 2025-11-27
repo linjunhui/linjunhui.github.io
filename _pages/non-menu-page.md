@@ -1,16 +1,16 @@
 ---
 permalink: /non-menu-page/
-title: "Page not in menu"
+title: "不在菜单中的页面"
 author_profile: true
 redirect_from: 
   - "/nmp/"
   - "/nmp.html"
 ---
 
-This is a page not in the menu. You can use markdown in this page.
+这是一个不在菜单中的页面。您可以在此页面中使用 markdown。
 
-Heading 1
+标题 1
 ======
 
-Heading 2
+标题 2
 ======
