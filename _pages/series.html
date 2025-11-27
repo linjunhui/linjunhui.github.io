@@ -18,7 +18,7 @@ author_profile: true
 {% endfor %}
 
 {% if all_series.size > 0 %}
-  <div class="series-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2em; margin-top: 2em;">
+  <div class="series-list" style="margin-top: 2em;">
     {% for series_name in all_series %}
       {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
       {% assign series_posts_by_date = site.posts | where: "series", series_name | sort: "date" | reverse %}
@@ -26,48 +26,114 @@ author_profile: true
       {% assign latest_post = series_posts_by_date | first %}
       {% assign first_post = series_posts | first %}
       
-      <div class="series-card" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px; padding: 1.5em; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; border-left: 4px solid #0066cc;">
-        {% assign series_encoded = series_name | url_encode %}
-        <a href="{{ '/series-detail/' | relative_url }}?series={{ series_encoded }}" style="text-decoration: none; color: inherit;">
-          <h2 style="margin-top: 0; margin-bottom: 0.5em; color: #0066cc; font-size: 1.4em;">
-            <i class="fa fa-book" aria-hidden="true"></i> {{ series_name }}
+      <div class="series-card" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px; padding: 1.5em; margin-bottom: 2em; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-left: 4px solid #0066cc;">
+        <div class="series-header" style="cursor: pointer;" onclick="toggleSeries('series-{{ forloop.index }}')">
+          <h2 style="margin-top: 0; margin-bottom: 0.5em; color: #0066cc; font-size: 1.4em; display: flex; align-items: center; justify-content: space-between;">
+            <span>
+              <i class="fa fa-book" aria-hidden="true"></i> {{ series_name }}
+            </span>
+            <span style="font-size: 0.6em; font-weight: normal;">
+              <i class="fa fa-chevron-down" id="icon-series-{{ forloop.index }}" aria-hidden="true"></i>
+            </span>
           </h2>
           
-          <div style="color: #666; font-size: 0.9em; margin-bottom: 1em;">
+          <div style="color: #666; font-size: 0.9em; margin-bottom: 0.5em;">
             <span><i class="fa fa-file-text-o" aria-hidden="true"></i> 共 {{ series_size }} 篇文章</span>
+            {% if latest_post.date %}
+              <span style="margin-left: 1em;">
+                <i class="fa fa-calendar" aria-hidden="true"></i> 
+                {{ latest_post.date | date: "%Y年%m月%d日" }}
+              </span>
+            {% endif %}
           </div>
           
           {% if first_post.excerpt %}
-            <p style="color: #555; font-size: 0.95em; line-height: 1.6; margin-bottom: 1em;">
+            <p style="color: #555; font-size: 0.95em; line-height: 1.6; margin-bottom: 0;">
               {{ first_post.excerpt | markdownify | strip_html | truncate: 100 }}
             </p>
           {% endif %}
-          
-          <div style="margin-top: 1em; padding-top: 1em; border-top: 1px solid rgba(0,102,204,0.2);">
-            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #888;">
-              <span>
-                <i class="fa fa-calendar" aria-hidden="true"></i> 
-                {% if latest_post.date %}
-                  {{ latest_post.date | date: "%Y年%m月%d日" }}
-                {% endif %}
-              </span>
-              <span style="color: #0066cc; font-weight: bold;">
-                查看详情 <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              </span>
-            </div>
-          </div>
-        </a>
+        </div>
+        
+        {% comment %} 系列文章列表，默认隐藏 {% endcomment %}
+        <div id="series-{{ forloop.index }}" class="series-posts" style="display: none; margin-top: 1.5em; padding-top: 1.5em; border-top: 2px solid rgba(0,102,204,0.2);">
+          <ol style="list-style: none; padding: 0;">
+            {% for post in series_posts %}
+              <li style="margin-bottom: 1.5em; padding: 1.2em; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.08); border-left: 3px solid #0066cc;">
+                <div style="display: flex; align-items: flex-start; gap: 1em;">
+                  <div style="flex-shrink: 0; width: 35px; height: 35px; background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1em;">
+                    {{ post.series_order | default: forloop.index0 }}
+                  </div>
+                  
+                  <div style="flex: 1;">
+                    <h3 style="margin-top: 0; margin-bottom: 0.5em;">
+                      <a href="{{ post.url | relative_url }}" style="color: #0066cc; text-decoration: none; font-size: 1.1em;">
+                        {{ post.title }}
+                      </a>
+                    </h3>
+                    
+                    {% if post.excerpt %}
+                      <p style="color: #666; line-height: 1.6; margin-bottom: 0.5em; font-size: 0.95em;">
+                        {{ post.excerpt | markdownify | strip_html }}
+                      </p>
+                    {% endif %}
+                    
+                    <div style="display: flex; gap: 1.5em; font-size: 0.85em; color: #888; margin-top: 0.5em;">
+                      {% if post.date %}
+                        <span>
+                          <i class="fa fa-calendar" aria-hidden="true"></i> 
+                          {{ post.date | date: "%Y年%m月%d日" }}
+                        </span>
+                      {% endif %}
+                    </div>
+                    
+                    <div style="margin-top: 0.8em;">
+                      <a href="{{ post.url | relative_url }}" style="display: inline-block; padding: 0.4em 1em; background: #0066cc; color: white; border-radius: 4px; text-decoration: none; font-size: 0.9em; transition: background 0.3s;">
+                        阅读文章 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
       </div>
     {% endfor %}
   </div>
   
+  <script>
+  function toggleSeries(seriesId) {
+    var seriesEl = document.getElementById(seriesId);
+    var iconEl = document.getElementById('icon-' + seriesId);
+    
+    if (seriesEl.style.display === 'none') {
+      seriesEl.style.display = 'block';
+      if (iconEl) {
+        iconEl.classList.remove('fa-chevron-down');
+        iconEl.classList.add('fa-chevron-up');
+      }
+    } else {
+      seriesEl.style.display = 'none';
+      if (iconEl) {
+        iconEl.classList.remove('fa-chevron-up');
+        iconEl.classList.add('fa-chevron-down');
+      }
+    }
+  }
+  </script>
+  
   <style>
     .series-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     }
-    .series-card a:hover {
-      text-decoration: none;
+    .series-header:hover {
+      opacity: 0.9;
+    }
+    .series-posts a:hover {
+      color: #004499 !important;
+    }
+    .series-posts a[style*="background"]:hover {
+      background: #004499 !important;
     }
   </style>
 {% else %}
