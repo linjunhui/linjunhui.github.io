@@ -18,8 +18,81 @@ author_profile: true
 {% endfor %}
 
 <div id="series-detail-container">
-  <div style="text-align: center; padding: 2em;">
+  {% comment %} 为每个系列生成一个内容块 {% endcomment %}
+  {% for series_name in all_series %}
+    {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
+    {% assign series_slug = series_name | slugify %}
+    
+    <div class="series-content" data-series="{{ series_name | jsonify }}" style="display: none;">
+      <div class="series-detail-header" style="margin-bottom: 2em; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px;">
+        <h1 style="margin-top: 0; color: #0066cc;">
+          <i class="fa fa-book" aria-hidden="true"></i> {{ series_name }}
+        </h1>
+        <p style="color: #666; margin-bottom: 0;">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i> 共 {{ series_posts.size }} 篇文章
+        </p>
+      </div>
+      
+      <div class="series-posts-list">
+        <ol style="list-style: none; padding: 0;">
+          {% for post in series_posts %}
+            <li style="margin-bottom: 2em; padding: 1.5em; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #0066cc;">
+              <div style="display: flex; align-items: flex-start; gap: 1em;">
+                <div style="flex-shrink: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em;">
+                  {{ post.series_order | default: forloop.index0 }}
+                </div>
+                
+                <div style="flex: 1;">
+                  <h2 class="archive__item-title" style="margin-top: 0; margin-bottom: 0.5em;">
+                    <a href="{{ post.url | relative_url }}" style="color: #0066cc; text-decoration: none;">
+                      {{ post.title }}
+                    </a>
+                  </h2>
+                  
+                  {% if post.excerpt %}
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 0.5em;">
+                      {{ post.excerpt | markdownify | strip_html }}
+                    </p>
+                  {% endif %}
+                  
+                  <div style="display: flex; gap: 1.5em; font-size: 0.9em; color: #888; margin-top: 0.5em;">
+                    {% if post.date %}
+                      <span>
+                        <i class="fa fa-calendar" aria-hidden="true"></i> 
+                        {{ post.date | date: "%Y年%m月%d日" }}
+                      </span>
+                    {% endif %}
+                    {% if post.read_time %}
+                      <span>
+                        <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                        {% include read-time.html %}
+                      </span>
+                    {% endif %}
+                  </div>
+                  
+                  <div style="margin-top: 0.8em;">
+                    <a href="{{ post.url | relative_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.5em 1.2em; background: #0066cc; color: white; border-radius: 4px; text-decoration: none; transition: background 0.3s;">
+                      阅读文章 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+    </div>
+  {% endfor %}
+  
+  {% comment %} 默认提示信息 {% endcomment %}
+  <div id="series-loading" style="text-align: center; padding: 2em;">
     <p>正在加载系列文章...</p>
+  </div>
+  
+  {% comment %} 错误提示 {% endcomment %}
+  <div id="series-error" style="display: none; padding: 2em; background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px;">
+    <p style="color: #856404; font-weight: bold;">未找到指定的系列文章。</p>
+    <p>请返回 <a href="{{ '/series/' | relative_url }}">合集列表</a>。</p>
   </div>
 </div>
 
@@ -30,7 +103,7 @@ author_profile: true
   var seriesName = urlParams.get('series');
   
   if (!seriesName) {
-    document.getElementById('series-detail-container').innerHTML = 
+    document.getElementById('series-loading').innerHTML = 
       '<p>未指定系列名称。请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
     return;
   }
@@ -42,96 +115,45 @@ author_profile: true
     // 如果解码失败，使用原始值
   }
   
-  // 系列数据（在构建时由 Liquid 生成）
-  var seriesDataMap = {};
+  // 隐藏加载提示
+  document.getElementById('series-loading').style.display = 'none';
   
-  {% for series_name in all_series %}
-    {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
-    seriesDataMap[{{ series_name | jsonify }}] = {
-      name: {{ series_name | jsonify }},
-      posts: [
-        {% for post in series_posts %}
-        {
-          title: {{ post.title | jsonify }},
-          url: {{ post.url | relative_url | jsonify }},
-          excerpt: {{ post.excerpt | default: "" | markdownify | strip_html | jsonify }},
-          date: {{ post.date | date: "%Y年%m月%d日" | jsonify }},
-          series_order: {{ post.series_order | default: forloop.index0 | jsonify }}
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-      ]
-    };
-  {% endfor %}
+  // 查找匹配的系列内容块
+  var seriesContents = document.querySelectorAll('.series-content');
+  var found = false;
   
-  // 查找匹配的系列
-  var seriesData = seriesDataMap[seriesName];
-  
-  // 如果精确匹配失败，尝试遍历所有键进行匹配
-  if (!seriesData) {
-    // 尝试各种解码方式
-    var decodedName = decodeURIComponent(seriesName);
-    seriesData = seriesDataMap[decodedName];
+  for (var i = 0; i < seriesContents.length; i++) {
+    var content = seriesContents[i];
+    var dataSeries = content.getAttribute('data-series');
     
-    if (!seriesData) {
-      // 遍历所有键进行模糊匹配
-      for (var key in seriesDataMap) {
-        var decodedKey = decodeURIComponent(key);
-        if (key === seriesName || 
-            decodedKey === seriesName || 
-            key === decodedName || 
-            decodedKey === decodedName ||
-            seriesName.indexOf(key) !== -1 ||
-            key.indexOf(seriesName) !== -1) {
-          seriesData = seriesDataMap[key];
-          break;
-        }
-      }
+    // 尝试解析 JSON（如果被转义了）
+    try {
+      dataSeries = JSON.parse(dataSeries);
+    } catch(e) {
+      // 如果不是 JSON，直接使用
+    }
+    
+    // 匹配系列名称
+    if (dataSeries === seriesName || 
+        decodeURIComponent(dataSeries) === seriesName ||
+        dataSeries === decodeURIComponent(seriesName)) {
+      content.style.display = 'block';
+      found = true;
+      
+      // 更新页面标题
+      var seriesTitle = content.querySelector('h1').textContent.replace(/^\s*[^\s]+\s+/, '').trim();
+      document.title = seriesTitle + ' - 系列文章详情';
+      break;
     }
   }
   
-  if (seriesData) {
-    var html = '';
-    html += '<div class="series-detail-header" style="margin-bottom: 2em; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px;">';
-    html += '<h1 style="margin-top: 0; color: #0066cc;"><i class="fa fa-book" aria-hidden="true"></i> ' + seriesData.name + '</h1>';
-    html += '<p style="color: #666; margin-bottom: 0;"><i class="fa fa-file-text-o" aria-hidden="true"></i> 共 ' + seriesData.posts.length + ' 篇文章</p>';
-    html += '</div>';
-    
-    html += '<div class="series-posts-list"><ol style="list-style: none; padding: 0;">';
-    
-    seriesData.posts.forEach(function(post) {
-      html += '<li style="margin-bottom: 2em; padding: 1.5em; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #0066cc;">';
-      html += '<div style="display: flex; align-items: flex-start; gap: 1em;">';
-      html += '<div style="flex-shrink: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em;">' + post.series_order + '</div>';
-      html += '<div style="flex: 1;">';
-      html += '<h2 class="archive__item-title" style="margin-top: 0; margin-bottom: 0.5em;"><a href="' + post.url + '" style="color: #0066cc; text-decoration: none;">' + post.title + '</a></h2>';
-      if (post.excerpt && post.excerpt.trim()) {
-        html += '<p style="color: #666; line-height: 1.6; margin-bottom: 0.5em;">' + post.excerpt + '</p>';
-      }
-      html += '<div style="display: flex; gap: 1.5em; font-size: 0.9em; color: #888; margin-top: 0.5em;">';
-      if (post.date) {
-        html += '<span><i class="fa fa-calendar" aria-hidden="true"></i> ' + post.date + '</span>';
-      }
-      html += '</div>';
-      html += '<div style="margin-top: 0.8em;"><a href="' + post.url + '" class="btn btn--primary" style="display: inline-block; padding: 0.5em 1.2em; background: #0066cc; color: white; border-radius: 4px; text-decoration: none; transition: background 0.3s;">阅读文章 <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>';
-      html += '</div></div></li>';
-    });
-    
-    html += '</ol></div>';
-    
-    document.getElementById('series-detail-container').innerHTML = html;
-    document.title = seriesData.name + ' - 系列文章详情';
-  } else {
-    var debugInfo = 'Series name (raw): ' + seriesName + '<br>';
-    debugInfo += 'Series name (decoded): ' + decodeURIComponent(seriesName) + '<br>';
-    debugInfo += 'Available series: ' + Object.keys(seriesDataMap).join(', ') + '<br>';
-    debugInfo += 'Series data map keys: ' + JSON.stringify(Object.keys(seriesDataMap));
-    
-    document.getElementById('series-detail-container').innerHTML = 
-      '<div style="padding: 2em; background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px;">' +
-      '<p style="color: #856404; font-weight: bold;">未找到系列 "' + seriesName + '" 的文章。</p>' +
-      '<p>请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>' +
-      '<details style="margin-top: 1em;"><summary style="cursor: pointer; color: #856404;">调试信息（点击展开）</summary><pre style="margin-top: 0.5em; padding: 1em; background: white; border-radius: 4px; overflow: auto;">' + debugInfo + '</pre></details>' +
-      '</div>';
+  // 如果没找到，显示错误信息
+  if (!found) {
+    document.getElementById('series-error').style.display = 'block';
+    console.log('Series name:', seriesName);
+    console.log('Available series:', Array.from(seriesContents).map(function(c) {
+      return c.getAttribute('data-series');
+    }));
   }
 })();
 </script>
