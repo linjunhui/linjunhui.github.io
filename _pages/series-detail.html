@@ -23,7 +23,7 @@ author_profile: true
     {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
     {% assign series_slug = series_name | slugify %}
     
-    <div class="series-content" data-series="{{ series_name | jsonify }}" style="display: none;">
+    <div class="series-content" data-series="{{ series_name }}" style="display: none;">
       <div class="series-detail-header" style="margin-bottom: 2em; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px;">
         <h1 style="margin-top: 0; color: #0066cc;">
           <i class="fa fa-book" aria-hidden="true"></i> {{ series_name }}
@@ -98,62 +98,131 @@ author_profile: true
 
 <script>
 (function() {
-  // 从 URL 查询参数中获取系列名称
-  var urlParams = new URLSearchParams(window.location.search);
-  var seriesName = urlParams.get('series');
-  
-  if (!seriesName) {
-    document.getElementById('series-loading').innerHTML = 
-      '<p>未指定系列名称。请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
-    return;
+  // 确保 DOM 加载完成后再执行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSeriesDetail);
+  } else {
+    initSeriesDetail();
   }
   
-  // 解码 URL 编码
-  try {
-    seriesName = decodeURIComponent(seriesName);
-  } catch(e) {
-    // 如果解码失败，使用原始值
-  }
-  
-  // 隐藏加载提示
-  document.getElementById('series-loading').style.display = 'none';
-  
-  // 查找匹配的系列内容块
-  var seriesContents = document.querySelectorAll('.series-content');
-  var found = false;
-  
-  for (var i = 0; i < seriesContents.length; i++) {
-    var content = seriesContents[i];
-    var dataSeries = content.getAttribute('data-series');
-    
-    // 尝试解析 JSON（如果被转义了）
+  function initSeriesDetail() {
     try {
-      dataSeries = JSON.parse(dataSeries);
-    } catch(e) {
-      // 如果不是 JSON，直接使用
-    }
-    
-    // 匹配系列名称
-    if (dataSeries === seriesName || 
-        decodeURIComponent(dataSeries) === seriesName ||
-        dataSeries === decodeURIComponent(seriesName)) {
-      content.style.display = 'block';
-      found = true;
+      // 从 URL 查询参数中获取系列名称
+      var urlParams = new URLSearchParams(window.location.search);
+      var seriesName = urlParams.get('series');
       
-      // 更新页面标题
-      var seriesTitle = content.querySelector('h1').textContent.replace(/^\s*[^\s]+\s+/, '').trim();
-      document.title = seriesTitle + ' - 系列文章详情';
-      break;
+      console.log('URL params:', window.location.search);
+      console.log('Series name from URL:', seriesName);
+      
+      if (!seriesName) {
+        var loadingEl = document.getElementById('series-loading');
+        if (loadingEl) {
+          loadingEl.innerHTML = '<p>未指定系列名称。请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
+        }
+        return;
+      }
+      
+      // 解码 URL 编码
+      var decodedSeriesName = seriesName;
+      try {
+        decodedSeriesName = decodeURIComponent(seriesName);
+        console.log('Decoded series name:', decodedSeriesName);
+      } catch(e) {
+        console.log('Decode error:', e);
+        // 如果解码失败，使用原始值
+      }
+      
+      // 隐藏加载提示
+      var loadingEl = document.getElementById('series-loading');
+      if (loadingEl) {
+        loadingEl.style.display = 'none';
+      }
+    
+      // 查找匹配的系列内容块
+      var seriesContents = document.querySelectorAll('.series-content');
+      console.log('Found series content blocks:', seriesContents.length);
+      
+      var found = false;
+      
+      for (var i = 0; i < seriesContents.length; i++) {
+        var content = seriesContents[i];
+        var dataSeries = content.getAttribute('data-series');
+        
+        console.log('Comparing:', {
+          'data-series': dataSeries,
+          'seriesName': seriesName,
+          'decodedSeriesName': decodedSeriesName
+        });
+        
+        // 匹配系列名称（支持多种编码方式）
+        var match = false;
+        
+        // 直接匹配
+        if (dataSeries === seriesName || dataSeries === decodedSeriesName) {
+          match = true;
+          console.log('Direct match found!');
+        } else {
+          // 尝试 HTML 实体解码（如果被转义了）
+          try {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = dataSeries;
+            var unescapedDataSeries = tempDiv.textContent || tempDiv.innerText || '';
+            
+            if (unescapedDataSeries === seriesName || unescapedDataSeries === decodedSeriesName) {
+              match = true;
+              console.log('Unescaped match found!');
+            }
+          } catch(e) {
+            console.log('Unescape error:', e);
+            // 解码失败，继续尝试其他方式
+          }
+        }
+        
+        if (match) {
+          content.style.display = 'block';
+          found = true;
+          
+          // 更新页面标题
+          var h1El = content.querySelector('h1');
+          if (h1El) {
+            var seriesTitle = h1El.textContent.replace(/^\s*[^\s]+\s+/, '').trim();
+            document.title = seriesTitle + ' - 系列文章详情';
+          }
+          console.log('Series content displayed!');
+          break;
+        }
+      }
+    
+      // 如果没找到，显示错误信息
+      if (!found) {
+        var errorEl = document.getElementById('series-error');
+        if (errorEl) {
+          errorEl.style.display = 'block';
+          var availableSeries = Array.from(seriesContents).map(function(c) {
+            return c.getAttribute('data-series');
+          });
+          console.log('Series name from URL:', seriesName);
+          console.log('Decoded series name:', decodedSeriesName);
+          console.log('Available series:', availableSeries);
+          console.log('Number of series found:', seriesContents.length);
+          
+          // 在页面上也显示调试信息
+          var debugInfo = '<details style="margin-top: 1em;"><summary style="cursor: pointer;">调试信息</summary>';
+          debugInfo += '<pre style="margin-top: 0.5em; padding: 1em; background: white; border-radius: 4px; overflow: auto;">';
+          debugInfo += 'URL中的系列名称: ' + seriesName + '\n';
+          debugInfo += '解码后的系列名称: ' + decodedSeriesName + '\n';
+          debugInfo += '可用的系列: ' + availableSeries.join(', ') + '\n';
+          debugInfo += '</pre></details>';
+          errorEl.innerHTML += debugInfo;
+        }
+      }
+    } catch(error) {
+      console.error('Error in series detail script:', error);
+      var loadingEl = document.getElementById('series-loading');
+      if (loadingEl) {
+        loadingEl.innerHTML = '<p style="color: red;">加载出错: ' + error.message + '</p><p>请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
+      }
     }
-  }
-  
-  // 如果没找到，显示错误信息
-  if (!found) {
-    document.getElementById('series-error').style.display = 'block';
-    console.log('Series name:', seriesName);
-    console.log('Available series:', Array.from(seriesContents).map(function(c) {
-      return c.getAttribute('data-series');
-    }));
   }
 })();
 </script>
