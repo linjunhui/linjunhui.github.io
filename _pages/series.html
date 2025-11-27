@@ -1,0 +1,74 @@
+---
+layout: archive
+title: "文章合集"
+permalink: /series/
+author_profile: true
+---
+
+{% include base_path %}
+
+{% comment %} 收集所有系列 {% endcomment %}
+{% assign all_series = "" | split: "," %}
+{% for post in site.posts %}
+  {% if post.series %}
+    {% unless all_series contains post.series %}
+      {% assign all_series = all_series | push: post.series %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+
+{% if all_series.size > 0 %}
+  <div class="series-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2em; margin-top: 2em;">
+    {% for series_name in all_series %}
+      {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
+      {% assign series_posts_by_date = site.posts | where: "series", series_name | sort: "date" | reverse %}
+      {% assign series_size = series_posts | size %}
+      {% assign latest_post = series_posts_by_date | first %}
+      {% assign first_post = series_posts | first %}
+      
+      <div class="series-card" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px; padding: 1.5em; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; border-left: 4px solid #0066cc;">
+        <a href="{{ '/series-detail/?series=' | append: series_name | url_encode | relative_url }}" style="text-decoration: none; color: inherit;">
+          <h2 style="margin-top: 0; margin-bottom: 0.5em; color: #0066cc; font-size: 1.4em;">
+            <i class="fa fa-book" aria-hidden="true"></i> {{ series_name }}
+          </h2>
+          
+          <div style="color: #666; font-size: 0.9em; margin-bottom: 1em;">
+            <span><i class="fa fa-file-text-o" aria-hidden="true"></i> 共 {{ series_size }} 篇文章</span>
+          </div>
+          
+          {% if first_post.excerpt %}
+            <p style="color: #555; font-size: 0.95em; line-height: 1.6; margin-bottom: 1em;">
+              {{ first_post.excerpt | markdownify | strip_html | truncate: 100 }}
+            </p>
+          {% endif %}
+          
+          <div style="margin-top: 1em; padding-top: 1em; border-top: 1px solid rgba(0,102,204,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #888;">
+              <span>
+                <i class="fa fa-calendar" aria-hidden="true"></i> 
+                {% if latest_post.date %}
+                  {{ latest_post.date | date: "%Y年%m月%d日" }}
+                {% endif %}
+              </span>
+              <span style="color: #0066cc; font-weight: bold;">
+                查看详情 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <style>
+    .series-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .series-card a:hover {
+      text-decoration: none;
+    }
+  </style>
+{% else %}
+  <p>暂无文章合集。</p>
+{% endif %}

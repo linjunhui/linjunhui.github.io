@@ -1,0 +1,105 @@
+---
+layout: archive
+title: "系列文章详情"
+permalink: /series-detail/
+author_profile: true
+---
+
+{% include base_path %}
+
+<div id="series-detail-container">
+  <div style="text-align: center; padding: 2em;">
+    <p>正在加载系列文章...</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  // 从 URL 查询参数或 hash 中获取系列名称
+  var urlParams = new URLSearchParams(window.location.search);
+  var seriesName = urlParams.get('series') || decodeURIComponent(window.location.hash.substring(1));
+  
+  if (!seriesName) {
+    document.getElementById('series-detail-container').innerHTML = '<p>未指定系列名称。请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
+    return;
+  }
+  
+  // 系列数据（在构建时生成）
+  var seriesData = null;
+  
+  {% assign all_series = "" | split: "," %}
+  {% for post in site.posts %}
+    {% if post.series %}
+      {% unless all_series contains post.series %}
+        {% assign all_series = all_series | push: post.series %}
+      {% endunless %}
+    {% endif %}
+  {% endfor %}
+  
+  {% for series_name in all_series %}
+    {% if forloop.first %}if{% else %}else if{% endif %} (seriesName === {{ series_name | jsonify }}) {
+      {% assign series_posts = site.posts | where: "series", series_name | sort: "series_order" %}
+      seriesData = {
+        name: {{ series_name | jsonify }},
+        posts: [
+          {% for post in series_posts %}
+          {
+            title: {{ post.title | jsonify }},
+            url: {{ post.url | relative_url | jsonify }},
+            excerpt: {{ post.excerpt | default: "" | markdownify | strip_html | jsonify }},
+            date: {{ post.date | date: "%Y年%m月%d日" | jsonify }},
+            series_order: {{ post.series_order | default: forloop.index0 | jsonify }}
+          }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      };
+    }
+  {% endfor %}
+  
+  if (seriesData) {
+    var html = '';
+    html += '<div class="series-detail-header" style="margin-bottom: 2em; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px;">';
+    html += '<h1 style="margin-top: 0; color: #0066cc;"><i class="fa fa-book" aria-hidden="true"></i> ' + seriesData.name + '</h1>';
+    html += '<p style="color: #666; margin-bottom: 0;"><i class="fa fa-file-text-o" aria-hidden="true"></i> 共 ' + seriesData.posts.length + ' 篇文章</p>';
+    html += '</div>';
+    
+    html += '<div class="series-posts-list"><ol style="list-style: none; padding: 0;">';
+    
+    seriesData.posts.forEach(function(post) {
+      html += '<li style="margin-bottom: 2em; padding: 1.5em; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #0066cc;">';
+      html += '<div style="display: flex; align-items: flex-start; gap: 1em;">';
+      html += '<div style="flex-shrink: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em;">' + post.series_order + '</div>';
+      html += '<div style="flex: 1;">';
+      html += '<h2 class="archive__item-title" style="margin-top: 0; margin-bottom: 0.5em;"><a href="' + post.url + '" style="color: #0066cc; text-decoration: none;">' + post.title + '</a></h2>';
+      if (post.excerpt) {
+        html += '<p style="color: #666; line-height: 1.6; margin-bottom: 0.5em;">' + post.excerpt + '</p>';
+      }
+      html += '<div style="display: flex; gap: 1.5em; font-size: 0.9em; color: #888; margin-top: 0.5em;">';
+      if (post.date) {
+        html += '<span><i class="fa fa-calendar" aria-hidden="true"></i> ' + post.date + '</span>';
+      }
+      html += '</div>';
+      html += '<div style="margin-top: 0.8em;"><a href="' + post.url + '" class="btn btn--primary" style="display: inline-block; padding: 0.5em 1.2em; background: #0066cc; color: white; border-radius: 4px; text-decoration: none; transition: background 0.3s;">阅读文章 <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>';
+      html += '</div></div></li>';
+    });
+    
+    html += '</ol></div>';
+    
+    document.getElementById('series-detail-container').innerHTML = html;
+    
+    // 更新页面标题
+    document.title = seriesData.name + ' - 系列文章详情';
+  } else {
+    document.getElementById('series-detail-container').innerHTML = '<p>未找到该系列的文章。请返回 <a href="{{ "/series/" | relative_url }}">合集列表</a>。</p>';
+  }
+})();
+</script>
+
+<style>
+  .series-posts-list a:hover {
+    color: #004499 !important;
+  }
+  .series-posts-list .btn:hover {
+    background: #004499 !important;
+  }
+</style>

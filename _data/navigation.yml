@@ -23,6 +23,9 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
+  - title: "文章合集"
+    url: /series/
+    
   - title: "CV"
     url: /cv/
     

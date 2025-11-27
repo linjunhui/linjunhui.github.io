@@ -1,0 +1,76 @@
+{% comment %}
+  系列详情组件
+  使用方法: {% include series-detail.html series="系列名称" %}
+{% endcomment %}
+
+{% assign series_posts = site.posts | where: "series", include.series | sort: "series_order" %}
+{% assign series_size = series_posts | size %}
+
+{% if series_size > 0 %}
+  <div class="series-detail-header" style="margin-bottom: 2em; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px;">
+    <h1 style="margin-top: 0; color: #0066cc;">
+      <i class="fa fa-book" aria-hidden="true"></i> {{ include.series }}
+    </h1>
+    <p style="color: #666; margin-bottom: 0;">
+      <i class="fa fa-file-text-o" aria-hidden="true"></i> 共 {{ series_size }} 篇文章
+    </p>
+  </div>
+  
+  <div class="series-posts-list">
+    <ol style="list-style: none; padding: 0;">
+      {% for post in series_posts %}
+        <li style="margin-bottom: 2em; padding: 1.5em; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 4px solid #0066cc;">
+          <div style="display: flex; align-items: flex-start; gap: 1em;">
+            <div style="flex-shrink: 0; width: 40px; height: 40px; background: linear-gradient(135deg, #0066cc 0%, #004499 100%); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1em;">
+              {{ post.series_order | default: forloop.index0 }}
+            </div>
+            
+            <div style="flex: 1;">
+              <h2 class="archive__item-title" style="margin-top: 0; margin-bottom: 0.5em;">
+                <a href="{{ post.url | relative_url }}" style="color: #0066cc; text-decoration: none;">
+                  {{ post.title }}
+                </a>
+              </h2>
+              
+              {% if post.excerpt %}
+                <p style="color: #666; line-height: 1.6; margin-bottom: 0.5em;">
+                  {{ post.excerpt | markdownify | strip_html }}
+                </p>
+              {% endif %}
+              
+              <div style="display: flex; gap: 1.5em; font-size: 0.9em; color: #888; margin-top: 0.5em;">
+                {% if post.date %}
+                  <span>
+                    <i class="fa fa-calendar" aria-hidden="true"></i> 
+                    {{ post.date | date: "%Y年%m月%d日" }}
+                  </span>
+                {% endif %}
+                {% if post.read_time %}
+                  <span>
+                    <i class="fa fa-clock-o" aria-hidden="true"></i> 
+                    {% include read-time.html %}
+                  </span>
+                {% endif %}
+              </div>
+              
+              <div style="margin-top: 0.8em;">
+                <a href="{{ post.url | relative_url }}" class="btn btn--primary" style="display: inline-block; padding: 0.5em 1.2em; background: #0066cc; color: white; border-radius: 4px; text-decoration: none; transition: background 0.3s;">
+                  阅读文章 <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+  
+  <style>
+    .series-posts-list a:hover {
+      color: #004499 !important;
+    }
+    .series-posts-list .btn:hover {
+      background: #004499 !important;
+    }
+  </style>
+{% endif %}
