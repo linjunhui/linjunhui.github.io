@@ -1,0 +1,99 @@
+{% comment %}
+  系列文章导航组件
+  使用方法: {% include series-navigation.html %}
+  
+  需要在文章的 front matter 中设置:
+  - series: "系列名称"
+  - series_order: 序号（数字）
+{% endcomment %}
+
+{% if page.series %}
+  {% assign series_posts = site.posts | where: "series", page.series | sort: "series_order" %}
+  {% assign series_size = series_posts | size %}
+  
+  {% if series_size > 1 %}
+    {% comment %} 找到当前文章的索引 {% endcomment %}
+    {% assign current_index = 0 %}
+    {% for post in series_posts %}
+      {% if post.url == page.url %}
+        {% assign current_index = forloop.index0 %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    
+    {% comment %} 获取上一篇和下一篇文章 {% endcomment %}
+    {% if current_index > 0 %}
+      {% assign prev_index = current_index | minus: 1 %}
+      {% assign prev_post = series_posts[prev_index] %}
+    {% endif %}
+    {% assign next_index = current_index | plus: 1 %}
+    {% if next_index < series_size %}
+      {% assign next_post = series_posts[next_index] %}
+    {% endif %}
+    
+    <div class="series-navigation" style="margin: 2em 0; padding: 1.5em; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-left: 4px solid #0066cc; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      <h3 style="margin-top: 0; margin-bottom: 0.5em; color: #0066cc; font-size: 1.3em;">
+        <i class="fa fa-book" aria-hidden="true"></i> {{ page.series }} 系列
+        <span style="font-size: 0.8em; font-weight: normal; color: #666;">（共 {{ series_size }} 篇）</span>
+      </h3>
+      
+      <div style="margin-top: 1em;">
+        <ol style="margin: 0; padding-left: 1.8em; line-height: 1.8;">
+          {% for post in series_posts %}
+            <li style="margin: 0.4em 0;">
+              {% if post.url == page.url %}
+                <strong style="color: #0066cc; font-size: 1.05em;">{{ post.title }}</strong>
+                <span style="color: #999; font-size: 0.85em; margin-left: 0.5em;">（当前文章）</span>
+              {% else %}
+                <a href="{{ post.url | relative_url }}" style="color: #333; text-decoration: none; transition: color 0.3s;">
+                  {{ post.title }}
+                </a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      </div>
+      
+      {% comment %} 上一篇和下一篇文章导航 {% endcomment %}
+      {% if prev_post or next_post %}
+        <div style="margin-top: 1.5em; padding-top: 1em; border-top: 2px solid rgba(0,102,204,0.2); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1em;">
+          {% if prev_post %}
+            <a href="{{ prev_post.url | relative_url }}" style="color: #0066cc; text-decoration: none; padding: 0.5em 1em; background: white; border-radius: 4px; transition: all 0.3s; flex: 1; min-width: 200px; text-align: left;">
+              <i class="fa fa-arrow-left" aria-hidden="true"></i> 
+              <strong>上一篇</strong><br>
+              <span style="font-size: 0.9em; color: #666;">{{ prev_post.title }}</span>
+            </a>
+          {% else %}
+            <span style="color: #999; padding: 0.5em 1em; flex: 1; min-width: 200px;">
+              <i class="fa fa-check-circle" aria-hidden="true"></i> 已经是第一篇
+            </span>
+          {% endif %}
+          
+          {% if next_post %}
+            <a href="{{ next_post.url | relative_url }}" style="color: #0066cc; text-decoration: none; padding: 0.5em 1em; background: white; border-radius: 4px; transition: all 0.3s; flex: 1; min-width: 200px; text-align: right;">
+              <strong>下一篇</strong> 
+              <i class="fa fa-arrow-right" aria-hidden="true"></i><br>
+              <span style="font-size: 0.9em; color: #666;">{{ next_post.title }}</span>
+            </a>
+          {% else %}
+            <span style="color: #999; padding: 0.5em 1em; flex: 1; min-width: 200px; text-align: right;">
+              <i class="fa fa-check-circle" aria-hidden="true"></i> 已经是最后一篇
+            </span>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+    
+    <style>
+      .series-navigation a:hover {
+        color: #004499 !important;
+        transform: translateX(2px);
+      }
+      .series-navigation a[href*="{{ prev_post.url }}"]:hover,
+      .series-navigation a[href*="{{ next_post.url }}"]:hover {
+        box-shadow: 0 2px 4px rgba(0,102,204,0.2);
+        transform: translateY(-2px);
+      }
+    </style>
+  {% endif %}
+{% endif %}

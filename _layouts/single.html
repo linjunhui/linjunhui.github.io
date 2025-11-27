@@ -45,6 +45,11 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        {% comment %} 系列文章导航 - 显示在文章开头 {% endcomment %}
+        {% if page.series %}
+          {% include series-navigation.html %}
+        {% endif %}
+        
         {{ content }}
 
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
