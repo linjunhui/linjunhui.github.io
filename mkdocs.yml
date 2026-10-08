@@ -102,10 +102,11 @@ nav:
       - Feynman Technique: growth-mindset/learning-ability_Feynman-Technique.md
       - Simon Learning Method: growth-mindset/learning-ability_Simon-learning-method.md
       - SMART Principle: growth-mindset/SMART-Principle.md
-  - Goals:
-      - All Goals: goals/index.md
-      - IELTS: goals/IELTS.md
+  - IELTS:
+      - IELTS Plan: goals/IELTS.md
       - Writing AI Review: goals/ielts-writing-ai-review.md
+      - Speaking · Hobbies: goals/speaking_01_hobbies.md
+  - ACP:
       - Alibaba Cloud ACP: goals/ACP.md
   - Writing:
       - All Posts: writing/index.md
