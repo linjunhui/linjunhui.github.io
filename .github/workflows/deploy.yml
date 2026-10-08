@@ -33,6 +33,11 @@ jobs:
       - name: 构建站点
         run: mkdocs build
 
+      - name: 关闭 Jekyll 处理
+        # 仓库仍处于 legacy（分支部署）模式，Pages 会用 Jekyll 再构建一次，
+        # 且常常覆盖我们的产物。.nojekyll 让 Pages 跳过 Jekyll，原样发布。
+        run: touch site/.nojekyll
+
       - name: 上传产物
         uses: actions/upload-pages-artifact@v3
         with:
