@@ -97,6 +97,12 @@ nav:
   - 笔记:
       - 笔记目录: notes/index.md
       - 第一篇笔记: notes/hello.md
-  - 成长思维:
-      - 笔记目录: growth-mindset/index.md
+  - Growth Mindset:
+      - Notes: growth-mindset/index.md
       - Feynman Technique: growth-mindset/learning-ability_Feynman-Technique.md
+      - Simon Learning Method: growth-mindset/learning-ability_Simon-learning-method.md
+      - SMART Principle: growth-mindset/SMART-Principle.md
+  - Goals:
+      - All Goals: goals/index.md
+      - IELTS: goals/IELTS.md
+      - Alibaba Cloud ACP: goals/ACP.md

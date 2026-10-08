@@ -1,3 +1,5 @@
+# Simon Learning Method
+
 ## Mindset 002｜Simon Learning Method — Explained
 
 **In one sentence**: Break any big subject into tiny, learnable units, then attack each one with full focus and continuity — until you've conquered the whole field.

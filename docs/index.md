@@ -32,6 +32,14 @@ title: 首页
 
     [:octicons-arrow-right-24: 去笔记区](notes/index.md)
 
+-   :material-target:{ .lg .middle } **我的目标**
+
+    ---
+
+    雅思、云认证……把愿望拆成可执行、可衡量的目标。
+
+    [:octicons-arrow-right-24: 去看目标](goals/index.md)
+
 </div>
 
 ## 最近在写

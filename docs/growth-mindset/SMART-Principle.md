@@ -1,3 +1,5 @@
+# SMART Principle
+
 ## Mindset 024｜SMART Principle — Explained
 
 **In one sentence**: A framework for turning a *vague wish* ("I want to get better") into a *testable goal* ("I will ... by ...") — so you can actually judge whether you're on track.
