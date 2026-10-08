@@ -65,6 +65,40 @@ Four independent skills — **no overlap, together they cover the whole exam** (
 > **Why these four?** Input (Listening/Reading) can be self-checked; output (Writing/Speaking)
 > needs feedback. Writing is the biggest risk for 7.0 — so it gets a **public** output habit.
 
+### 🎧 Listening — detail (American accent)
+
+**Accent focus**: **American English** (clear, standard) — the default for work / foreign-company settings.
+
+**How to pick a show** — three rules:
+
+| Rule | Why |
+| --- | --- |
+| **Clear accent** (standard US) | Heavy dialects are unusable for training |
+| **Moderate speed, everyday talk** | Fast action / legalese teaches nothing |
+| **Campus / life / work scenes** | Closest to real IELTS listening topics |
+
+**Watch list (by level)**
+
+| Level | Show | Why it works |
+| --- | --- | --- |
+| 🟢 Starter | **Friends** ← *start here* | Everyday dialogue, moderate speed, high-frequency vocabulary |
+| 🟢 Starter | **Modern Family** | Family daily talk, natural idioms |
+| 🟡 Intermediate | **The Big Bang Theory** | Daily + academic words, slightly faster |
+| 🟡 Intermediate | **The Office (US)** | Real workplace talk — good for office English |
+| 🟡 Intermediate | **Suits** | Fast workplace debate — trains keyword catching |
+| 🎬 Movie (1/week option) | **The Pursuit of Happyness** / **Forrest Gump** / **The Internship** | Clear US accent, life & work scenes |
+
+**The 3-pass method** — this is what makes watching pay off:
+
+1. **Pass 1 — English subtitles**: follow the plot, mark new words.
+2. **Pass 2 — no subtitles**: force your ear; replay whatever you miss.
+3. **Pass 3 — shadowing**: pick 2–3 clips and repeat aloud, copying the intonation.
+
+**Non-negotiable rules**
+
+- ❌ **No Chinese subtitles** — that turns practice into reading.
+- ✅ Keep a **listening notebook** of new words & expressions (this is Simon's "effective method").
+
 ## 4. Sustain it (Simon Step 4 · 12 weeks)
 
 Continuity is the whole game — **clear goal × effective method × continuous investment**.
