@@ -1,12 +1,12 @@
-# 成长思维
+# Growth Mindset
 
 关于思维方式、学习方法和自我迭代的笔记。
 
-## 笔记列表
+## Notes List
 
 | 日期 | 标题 | 标签 |
 | --- | --- | --- |
-| — | 暂无，等你来写第一篇 | — |
+| 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | — |
 
 ---
 
