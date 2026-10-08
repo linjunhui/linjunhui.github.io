@@ -59,7 +59,7 @@ Four independent skills — **no overlap, together they cover the whole exam** (
 | --- | --- | --- | --- |
 | 🎧 **Listening** | 7.5 | Watch & shadow: **2 US series / week, or 1 movie**; dictation of missed lines | ≥ 2 series or 1 movie |
 | 📖 **Reading** | 7.5 | Read real material daily: **1 news or tech article / day**; log new words | 7 articles/week |
-| ✍️ **Writing** | 7.0 | **Publish 3 English posts / week** to the [Writing](../writing/index.md) section; correct each one | 3 posts/week |
+| ✍️ **Writing** | 7.0 | **Publish 3 English posts / week** to the [Writing](../writing/index.md) section; each one [AI-reviewed](ielts-writing-ai-review.md) | 3 posts/week |
 | 🗣️ **Speaking** | 7.0 | **Recite 3 Keith pieces / week** (Keith Speaking Academy); record & re-listen | 3 pieces/week |
 
 > **Why these four?** Input (Listening/Reading) can be self-checked; output (Writing/Speaking)
@@ -273,7 +273,7 @@ For every mistake — **especially in Writing and Speaking** — don't just re-r
 
 | Skill | How it gets corrected |
 | --- | --- |
-| Writing | **[TBD — AI review prompt / paid service / a friend]** |
+| Writing | **AI review** — see [Writing AI Review](ielts-writing-ai-review.md) (paste the prompt + my essay) |
 | Speaking | Self-review from recordings |
 | Listening / Reading | Self-check against answer keys |
 
