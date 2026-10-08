@@ -6,7 +6,8 @@
 
 | 日期 | 显示标题 | 文件名 | 标签 |
 | --- | --- | --- | --- |
-| 2026-10-08 | [费曼学习技巧](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | 学习方法 |
+| 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | Learning Methods |
+| 2026-10-08 | [Simon Learning Method](learning-ability_Simon-learning-method.md) | `learning-ability_Simon-learning-method.md` | Learning Methods |
 
 ---
 

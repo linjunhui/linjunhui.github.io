@@ -1,4 +1,4 @@
-# 费曼学习技巧
+# Feynman Technique
 
 ## Mindset 001｜Feynman Technique — Explained in English
 
