@@ -8,6 +8,7 @@
 | --- | --- | --- | --- |
 | 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | Learning Methods |
 | 2026-10-08 | [Simon Learning Method](learning-ability_Simon-learning-method.md) | `learning-ability_Simon-learning-method.md` | Learning Methods |
+| 2026-10-08 | [SMART Principle](SMART-Principle.md) | `SMART-Principle.md` | Deep Thinking & Decision-Making|
 
 ---
 
