@@ -112,25 +112,106 @@ Tilt toward the weakest skill at every review.
 | **② Build** | 5–8 | Volume + correction loop; first **full mock** in Week 6 | Input skills stable at 7.0–7.5 |
 | **③ Polish** | 9–12 | Full timed mocks weekly; fix the weakest skill | All four ≥ 7.0, exam-ready |
 
-### Weekly actuals table（每周实况 · 每科一列）
+### Weekly log（每周实况）
 
-> Fill one row every week. This is the single most important table on this page —
-> it is the anti-procrastination mechanism.
+> Fill in one section every week. This is the anti-procrastination mechanism —
+> write what you actually did, not what you planned to do.
 
-| Week | 🗣️ Speaking (Keith pieces) | ✍️ Writing (posts) | 🎧 Listening (series/movies) | 📖 Reading (articles) |
-| --- | --- | --- | --- | --- |
-| 1 | 3 | 3 | 2 series | 7 |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
-| 6 | | | | |
-| 7 | | | | |
-| 8 | | | | |
-| 9 | | | | |
-| 10 | | | | |
-| 11 | | | | |
-| 12 | | | | |
+#### Week 1 summary
+
+- **Listening**: 2 US series (Friends S1E1–3)
+- **Reading**: 7 articles (news / tech)
+- **Writing**: 3 posts published to [Writing](../writing/index.md)
+- **Speaking**: 3 Keith pieces recited + recorded
+- **Note**: baseline mock this week — record raw band for each skill.
+
+#### Week 2 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 3 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 4 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 5 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 6 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**: full mock this week.
+
+#### Week 7 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 8 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 9 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 10 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 11 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**:
+
+#### Week 12 summary
+
+- **Listening**:
+- **Reading**:
+- **Writing**:
+- **Speaking**:
+- **Note**: exam-ready check — all four ≥ 7.0.
 
 ### Weekly rhythm (~20 h)
 
