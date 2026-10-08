@@ -1,3 +1,5 @@
+# 费曼学习技巧
+
 ## Mindset 001｜Feynman Technique — Explained in English
 
 **The core idea in one sentence**: *"If you can't explain something in simple terms, you don't really understand it."* Learning is best done not by memorizing, but by **teaching others**. Named after physicist Richard Feynman, it forces you to **actively process information** (rather than passively memorize) and rebuild knowledge in your own words.

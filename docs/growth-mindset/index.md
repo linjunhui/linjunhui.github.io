@@ -4,11 +4,17 @@
 
 ## Notes List
 
-| 日期 | 标题 | 标签 |
-| --- | --- | --- |
-| 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | — |
+| 日期 | 显示标题 | 文件名 | 标签 |
+| --- | --- | --- | --- |
+| 2026-10-08 | [费曼学习技巧](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | 学习方法 |
 
 ---
 
-新建笔记的方法：在 `docs/growth-mindset/` 下建 `.md`，
-然后到 `mkdocs.yml` 的 `nav` 里 `成长思维:` 下面按同样的**缩进**登记一行。
+## 怎么加新笔记
+
+1. 在 `docs/growth-mindset/` 下建 `.md` 文件，文件名建议用英文或拼音（如 `sleep-quality.md`）。
+2. 打开 `mkdocs.yml`，在 `nav` 的 `成长思维:` 下面按**同样的缩进**登记一行：
+   `- 显示标题: growth-mindset/文件名.md`
+   —— 这里写的「显示标题」就是**左侧导航栏显示的名字**（可中文、可随意改）。
+3. 在本页上面的表格里加一行，`显示标题` 列填你想在目录里显示的文字，
+   `文件名` 列填实际文件名，并写成链接 `[显示标题](文件名.md)`。
