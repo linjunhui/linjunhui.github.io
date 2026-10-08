@@ -83,9 +83,9 @@ nav:
 打开 `docs/notes/index.md`，往表格加一行：
 
 ```markdown
-| 日期 | 显示标题 | 文件名 | 标签 |
-| --- | --- | --- | --- |
-| 2026-10-09 | [我的第一篇](my-first-note.md) | `my-first-note.md` | 随笔 |
+| 日期 | 显示标题 | 标签 |
+| --- | --- | --- |
+| 2026-10-09 | [我的第一篇](my-first-note.md) | 随笔 |
 ```
 
 **5. 发布**
@@ -177,13 +177,13 @@ WARNING - A reference to 'xxx/index.md' is included in the 'nav'
 **③ 分类目录页 `docs/growth-mindset/index.md`** —— 决定表格里的链接文字：
 
 ```markdown
-| 日期 | 显示标题 | 文件名 | 标签 |
-| --- | --- | --- | --- |
-| 2026-10-08 | [费曼学习技巧](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | 学习方法 |
+| 日期 | 显示标题 | 标签 |
+| --- | --- | --- |
+| 2026-10-08 | [费曼学习技巧](learning-ability_Feynman-Technique.md) | 学习方法 |
 ```
 
-> 表格用「显示标题」+「文件名」两列的好处：链接文字可随意改（改标题不用动链接），
-> 同时又能一眼看到实际文件名，方便回仓库里找文件。
+> 表格只放「显示标题」一列就够了：链接文字可随意改（改标题不用动链接）。
+> 文件名回仓库目录页一眼就能看到，没必要在页面上单占一列。
 
 ---
 
@@ -206,9 +206,9 @@ mkdir docs/reading
 
 ## 全部笔记
 
-| 日期 | 显示标题 | 文件名 | 标签 |
-| --- | --- | --- | --- |
-| — | 暂无 | — | — |
+| 日期 | 显示标题 | 标签 |
+| --- | --- | --- |
+| — | 暂无 | — |
 ```
 
 **2. 在 `mkdocs.yml` 的 `nav` 里登记**

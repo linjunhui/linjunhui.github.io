@@ -4,11 +4,11 @@ Notes on thinking models, learning methods and self-iteration.
 
 ## Notes List
 
-| Date | Title | File | Tags |
-| --- | --- | --- | --- |
-| 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | `learning-ability_Feynman-Technique.md` | Learning Methods |
-| 2026-10-08 | [Simon Learning Method](learning-ability_Simon-learning-method.md) | `learning-ability_Simon-learning-method.md` | Learning Methods |
-| 2026-10-08 | [SMART Principle](SMART-Principle.md) | `SMART-Principle.md` | Deep Thinking & Decision-Making |
+| Date | Title | Tags |
+| --- | --- | --- |
+| 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | Learning Methods |
+| 2026-10-08 | [Simon Learning Method](learning-ability_Simon-learning-method.md) | Learning Methods |
+| 2026-10-08 | [SMART Principle](SMART-Principle.md) | Deep Thinking & Decision-Making |
 
 ---
 
@@ -18,4 +18,5 @@ Notes on thinking models, learning methods and self-iteration.
 2. Register it in `mkdocs.yml` under `Growth Mindset:` with the same **indentation**:
    `- Display Title: growth-mindset/filename.md`
    The "Display Title" is what shows in the left sidebar (any wording you like).
-3. Add a row to the table above — `Title` column is the link text, `File` column is the actual filename.
+3. Add a row to the table above — the `Title` column is a link: `[Display Title](filename.md)`.
+   The link text can be anything; it doesn't have to match the filename.

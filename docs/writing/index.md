@@ -8,9 +8,9 @@ cases, connects my daily work with what I'm learning about **LLM Agents**.
 
 ## All Posts
 
-| Date | Title | File | Tags |
-| --- | --- | --- | --- |
-| 2026-10-08 | [What is an Agent?](what-is-an-agent.md) | `what-is-an-agent.md` | LLM Agent / Basics |
+| Date | Title | Tags |
+| --- | --- | --- |
+| 2026-10-08 | [What is an Agent?](what-is-an-agent.md) | LLM Agent / Basics |
 
 ---
 
@@ -19,4 +19,4 @@ cases, connects my daily work with what I'm learning about **LLM Agents**.
 1. Create a `.md` file under `docs/writing/` (English filename, e.g. `agent-memory.md`).
 2. Register it in `mkdocs.yml` under `Writing:` with the same **indentation**:
    `- Display Title: writing/filename.md`
-3. Add a row to the table above.
+3. Add a row to the table above — the `Title` column is a link: `[Display Title](filename.md)`.

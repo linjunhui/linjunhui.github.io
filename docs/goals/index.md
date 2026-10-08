@@ -4,10 +4,10 @@
 
 ## All Goals
 
-| Date | Title | File | Tags |
-| --- | --- | --- | --- |
-| 2026-10-08 | [IELTS](IELTS.md) | `IELTS.md` | English / Certification |
-| 2026-10-08 | [Alibaba Cloud ACP](ACP.md) | `ACP.md` | Cloud / Certification |
+| Date | Title | Tags |
+| --- | --- | --- |
+| 2026-10-08 | [IELTS](IELTS.md) | English / Certification |
+| 2026-10-08 | [Alibaba Cloud ACP](ACP.md) | Cloud / Certification |
 
 ---
 
@@ -16,7 +16,7 @@
 1. Create a `.md` file under `docs/goals/` (English filename, e.g. `pmp.md`).
 2. Register it in `mkdocs.yml` under `Goals:` with the same **indentation**:
    `- Display Title: goals/filename.md`
-3. Add a row to the table above — `Title` column is the link text, `File` column is the actual filename.
+3. Add a row to the table above — the `Title` column is a link: `[Display Title](filename.md)`.
 
 ### Goal page template
 
