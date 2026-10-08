@@ -1,12 +1,11 @@
 site_name: 林俊晖的笔记
 site_description: 用 Markdown 写，自动发布到 GitHub Pages
 site_author: 林俊晖
-# ↓↓↓ 建好仓库后替换这两处（用户名 / 仓库名）
-site_url: https://YOUR_GITHUB_USERNAME.github.io/LinJunhui-Pages/
+site_url: https://linjunhui.github.io/
 
-repo_name: YOUR_GITHUB_USERNAME/LinJunhui-Pages
-repo_url: https://github.com/YOUR_GITHUB_USERNAME/LinJunhui-Pages
-edit_uri: edit/main/docs/
+repo_name: linjunhui/linjunhui.github.io
+repo_url: https://github.com/linjunhui/linjunhui.github.io
+edit_uri: edit/master/docs/
 
 theme:
   name: material
@@ -85,7 +84,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/YOUR_GITHUB_USERNAME
+      link: https://github.com/linjunhui
   generator: false
 
 copyright: Copyright &copy; 林俊晖
