@@ -40,6 +40,14 @@ title: 首页
 
     [:octicons-arrow-right-24: 去看目标](goals/index.md)
 
+-   :material-pencil-outline:{ .lg .middle } **英文写作**
+
+    ---
+
+    结合工作，用英文输出关于 LLM Agent 的文章。
+
+    [:octicons-arrow-right-24: 去写作区](writing/index.md)
+
 </div>
 
 ## 最近在写

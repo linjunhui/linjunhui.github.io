@@ -55,83 +55,56 @@ Writing is the biggest risk (most candidates stall at 6.0–6.5). It needs the m
 
 Four independent skills — **no overlap, together they cover the whole exam** (MECE).
 
-### 🎧 ① Listening — target **7.5**
+| Skill | Target | Method (有效方法) | Weekly standard action |
+| --- | --- | --- | --- |
+| 🎧 **Listening** | 7.5 | Watch & shadow: **2 US series / week, or 1 movie**; dictation of missed lines | ≥ 2 series or 1 movie |
+| 📖 **Reading** | 7.5 | Read real material daily: **1 news or tech article / day**; log new words | 7 articles/week |
+| ✍️ **Writing** | 7.0 | **Publish 3 English posts / week** to the [Writing](../writing/index.md) section; correct each one | 3 posts/week |
+| 🗣️ **Speaking** | 7.0 | **Recite 3 Keith pieces / week** (Keith Speaking Academy); record & re-listen | 3 pieces/week |
 
-> Aim slightly **above** 7.0 here, to bank margin for Writing.
-
-| Item | Detail |
-| --- | --- |
-| **Question types** | Form / note completion, multiple choice, map, matching, sentence completion |
-| **Weekly volume** | 1 full section daily (Mon–Fri) + 1 full test on weekend |
-| **Core drills** | **Shadowing** (repeat aloud, sentence by sentence) · **dictation** of missed lines · spelling of numbers/names |
-| **The trap** | Only hearing it once — so train **prediction**: read questions *before* the audio starts |
-| **Acceptance** | 2 consecutive section mocks ≥ 7.5 |
-
-### 📖 ② Reading — target **7.5**
-
-> Same logic — bank margin; Reading is the most trainable section.
-
-| Item | Detail |
-| --- | --- |
-| **Question types** | T/F/NG, Y/N/NG, heading matching, summary, MCQ, sentence completion |
-| **Weekly volume** | 1 passage/day (timed 20 min) + 1 full test on weekend |
-| **Core drills** | **Synonym spotting** (paraphrase mapping) · **skimming vs scanning** · build a wrong-answer log |
-| **The trap** | Getting stuck on one hard passage — practice **strict 20-min-per-passage** discipline |
-| **Acceptance** | 3 consecutive passages ≥ 7.5 under time |
-
-### ✍️ ③ Writing — target **7.0** ← **highest risk**
-
-> This is where 7.0 is won or lost. **Every essay must be corrected** — uncorrected writing = wasted practice.
-
-| Item | Detail |
-| --- | --- |
-| **Task 1** | Report (chart/table/process/map) — 150 words; practise **describing + comparing**, not opinions |
-| **Task 2** | Essay — 250 words; 5 types: opinion / discussion / problem-solution / advantage-disadvantage / two-part |
-| **Weekly volume** | 2 essays/week (1 Task 1 + 1 Task 2), each **fully reviewed** |
-| **Structure** | Learn **one** solid template per task type; drill it until automatic |
-| **Core drills** | Task-1 paraphrase openers · Task-2 thesis + topic sentences · cohesion (linking) · range of structures |
-| **Correction** | **[TBD — see Step 5]** Every essay gets feedback before the next one |
-| **Acceptance** | 3 consecutive corrected essays ≥ 7.0 (on all 4 criteria: TR, CC, LR, GRA) |
-
-### 🗣️ ④ Speaking — target **7.0**
-
-| Item | Detail |
-| --- | --- |
-| **Parts** | Part 1 (intro Q&A) · Part 2 (1–2 min cue card) · Part 3 (abstract discussion) |
-| **Weekly volume** | 15 min/day aloud + **record every session** |
-| **Core drills** | Part-2 story bank (5–6 versatile stories) · Part-3 opinion + example pattern · fluency over accuracy |
-| **The trap** | Memorised answers — examiners detect them instantly; sound **natural, not scripted** |
-| **Correction** | **Re-listen to recordings**, mark fillers / pauses / grammar slips |
-| **Acceptance** | 3 consecutive recorded Part-2 answers ≥ 2 min, fluent |
+> **Why these four?** Input (Listening/Reading) can be self-checked; output (Writing/Speaking)
+> needs feedback. Writing is the biggest risk for 7.0 — so it gets a **public** output habit.
 
 ## 4. Sustain it (Simon Step 4 · 12 weeks)
 
-Continuity is the whole game — but **tilt toward the weakest skill** at every review.
+Continuity is the whole game — **clear goal × effective method × continuous investment**.
+Tilt toward the weakest skill at every review.
 
-| Phase | Weeks | Focus | Goal |
+### Whole-plan table (3 phases)
+
+| Phase | Weeks | Focus | Phase goal |
 | --- | --- | --- | --- |
-| **① Foundation** | 1–4 | Question types + vocabulary + templates; **Week 1 = baseline mock** | Know each skill's raw band |
-| **② Build** | 5–8 | Volume + correction loop; first full mock in Week 6 | Stabilise 6.5→7.0 on input skills |
+| **① Foundation** | 1–4 | Learn question types + templates; **Week 1 = baseline mock** | Know each skill's raw band |
+| **② Build** | 5–8 | Volume + correction loop; first **full mock** in Week 6 | Input skills stable at 7.0–7.5 |
 | **③ Polish** | 9–12 | Full timed mocks weekly; fix the weakest skill | All four ≥ 7.0, exam-ready |
 
-### 📅 12 weeks / 6 sprints (Scrum as rhythm only)
+### Weekly actuals table（每周实况 · 每科一列）
 
-| Sprint | Weeks | Sprint goal | Review |
-| --- | --- | --- | --- |
-| S1 | 1–2 | Baseline mock + learn Listening/Reading question types | Single-section mock |
-| S2 | 3–4 | Writing templates + Speaking story bank started | Single-section mock |
-| S3 | 5–6 | Volume push; **first full mock** | Full mock |
-| S4 | 7–8 | Fix the weakest skill found in S3 | Full mock |
-| S5 | 9–10 | All-timed full mocks | Full mock |
-| S6 | 11–12 | Exam simulation + polish | Full mock |
+> Fill one row every week. This is the single most important table on this page —
+> it is the anti-procrastination mechanism.
 
-### Weekly rhythm (20 h)
+| Week | 🗣️ Speaking (Keith pieces) | ✍️ Writing (posts) | 🎧 Listening (series/movies) | 📖 Reading (articles) |
+| --- | --- | --- | --- | --- |
+| 1 | 3 | 3 | 2 series | 7 |
+| 2 | | | | |
+| 3 | | | | |
+| 4 | | | | |
+| 5 | | | | |
+| 6 | | | | |
+| 7 | | | | |
+| 8 | | | | |
+| 9 | | | | |
+| 10 | | | | |
+| 11 | | | | |
+| 12 | | | | |
+
+### Weekly rhythm (~20 h)
 
 | Slot | Hours | Task |
 | --- | --- | --- |
-| Mon–Fri | 2.5 h/day | 1 input section + 30 words + 15 min speaking aloud |
-| Sat | 4 h | Single-section mock + **Feynman review** |
-| Sun | 4 h | Writing (2 essays) + speaking recording + weekly review |
+| Mon–Fri | ~2.5 h/day | 1 input section + 30 words + 15 min speaking aloud |
+| Sat | ~4 h | Single-section mock + **Feynman review** |
+| Sun | ~4 h | Writing (posts) + speaking recording + weekly review |
 
 ## 5. Review loop (Feynman) — the feedback Simon doesn't cover
 
@@ -143,7 +116,7 @@ For every mistake — **especially in Writing and Speaking** — don't just re-r
 
 > **Track it**: keep a running "mistake log". Anything that keeps recurring becomes next week's focus.
 
-### Correction setup (TBD)
+### Correction setup
 
 | Skill | How it gets corrected |
 | --- | --- |
@@ -157,3 +130,5 @@ For every mistake — **especially in Writing and Speaking** — don't just re-r
 
 - Official site: <https://www.ielts.org/>
 - Mock tests & practice: <https://takeielts.britishcouncil.org/>
+- Speaking input: **Keith Speaking Academy** (YouTube)
+- Writing output: the [Writing](../writing/index.md) section of this site

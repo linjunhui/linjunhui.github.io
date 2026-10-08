@@ -106,3 +106,6 @@ nav:
       - All Goals: goals/index.md
       - IELTS: goals/IELTS.md
       - Alibaba Cloud ACP: goals/ACP.md
+  - Writing:
+      - All Posts: writing/index.md
+      - What is an Agent?: writing/what-is-an-agent.md
