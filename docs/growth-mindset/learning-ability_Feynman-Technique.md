@@ -4,10 +4,7 @@
 
 ### The 4-Step Loop
 
-```
-<html style="margin:0;padding:0;font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#f7f8fa;">
-<title>Feynman Technique 4-Step Flow</title>
-<div style="width:100%;box-sizing:border-box;max-width:960px;margin:0 auto;padding:20px;">
+<div style="width:100%;box-sizing:border-box;max-width:960px;margin:0 auto;padding:20px;font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#f7f8fa;">
   <div style="text-align:center;font-size:20px;font-weight:700;color:#1a2b4a;margin-bottom:4px;">Feynman Technique · 4-Step Loop</div>
   <div style="text-align:center;font-size:13px;color:#8891a5;margin-bottom:18px;">Goal → Output → Simplify → Review (iterate)</div>
 
@@ -43,8 +40,6 @@
 
   <div style="text-align:center;font-size:13px;color:#4a7cf7;font-weight:700;margin-top:14px;">⟳ Loop: anything not yet clear → go back to STEP 2/3, teach & simplify again</div>
 </div>
-</html>
-```
 
 ### What each step does
 
