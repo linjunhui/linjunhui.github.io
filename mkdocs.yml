@@ -1,0 +1,100 @@
+site_name: 林俊晖的笔记
+site_description: 用 Markdown 写，自动发布到 GitHub Pages
+site_author: 林俊晖
+# ↓↓↓ 建好仓库后替换这两处（用户名 / 仓库名）
+site_url: https://YOUR_GITHUB_USERNAME.github.io/LinJunhui-Pages/
+
+repo_name: YOUR_GITHUB_USERNAME/LinJunhui-Pages
+repo_url: https://github.com/YOUR_GITHUB_USERNAME/LinJunhui-Pages
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/notebook-outline
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+      toc_depth: 3
+      # 关键：默认 slugify 会把中文标题吃掉（变成 _1、_2），这里换成 Unicode 友好的
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/YOUR_GITHUB_USERNAME
+  generator: false
+
+copyright: Copyright &copy; 林俊晖
+
+# 导航：以后每写一篇笔记，在这里加一行就行
+nav:
+  - 首页: index.md
+  - 使用说明:
+      - 怎么记笔记、怎么发布: guide/index.md
+  - 笔记:
+      - 笔记目录: notes/index.md
+      - 第一篇笔记: notes/hello.md
