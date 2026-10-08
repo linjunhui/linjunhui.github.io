@@ -15,7 +15,6 @@ The "cone / funnel" image the book uses: **time is the drill that keeps boring f
 
 ### The 4 steps
 
-```
 <html style="margin:0;padding:0;font-family:-apple-system,'Segoe UI',Arial,sans-serif;background:#f7f8fa;">
 <title>Simon Learning Method 4 Steps</title>
 <div style="width:100%;box-sizing:border-box;max-width:960px;margin:0 auto;padding:20px;">
@@ -51,7 +50,6 @@ The "cone / funnel" image the book uses: **time is the drill that keeps boring f
   <div style="text-align:center;font-size:13px;color:#1a2b4a;font-weight:700;margin-top:14px;background:#eef2ff;border-radius:8px;padding:10px;">Cone idea: narrow + deep + continuous beats wide + shallow. Focus on the top 20% first.</div>
 </div>
 </html>
-```
 
 ### The 4 steps in detail
 
