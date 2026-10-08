@@ -119,13 +119,15 @@ Tilt toward the weakest skill at every review.
 
 ### Week 1
 
+**Feynman Technique**
+- [Talk about your hobbies](speaking_01_hobbies.md), Imitating Keith
+
 **Summary**
 
-（baseline mock this week — record the raw band for each skill）
 
 | Subject | Progress | Note |
 | --- | --- | --- |
-| Listening | | |
+| Listening |  | [Keith IELTS Speaking](https://www.bilibili.com/video/BV1AUbL6oE1G/?spm_id_from=333.337.search-card.all.click&vd_source=aacc0007a60728019dc3721fa986940a)|
 | Reading | | |
 | Writing | | |
 | Speaking | | |
