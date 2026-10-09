@@ -38,7 +38,7 @@ title: 首页
 
     雅思、云认证……把愿望拆成可执行、可衡量的目标。
 
-    [:octicons-arrow-right-24: 去看雅思目标](goals/IELTS.md)
+    [:octicons-arrow-right-24: 去看雅思目标](ielts/)
 
 -   :material-pencil-outline:{ .lg .middle } **英文写作**
 

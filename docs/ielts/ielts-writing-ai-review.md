@@ -11,7 +11,7 @@
    - `PROMPT` → the question you were answering
    - `ESSAY` → your own writing
 3. Paste into an AI chat. Use the feedback to rewrite, then compare.
-4. Log the score in the [IELTS weekly log](IELTS.md).
+4. Log the score in the [IELTS weekly log](index.md).
 
 ---
 

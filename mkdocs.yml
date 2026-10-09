@@ -103,11 +103,11 @@ nav:
       - Simon Learning Method: growth-mindset/learning-ability_Simon-learning-method.md
       - SMART Principle: growth-mindset/SMART-Principle.md
   - IELTS:
-      - IELTS Plan: goals/IELTS.md
-      - Writing AI Review: goals/ielts-writing-ai-review.md
-      - Speaking · Hobbies: goals/speaking_01_hobbies.md
+      - ielts/index.md
+      - Writing AI Review: ielts/ielts-writing-ai-review.md
+      - Speaking · Hobbies: ielts/speaking_01_hobbies.md
   - ACP:
-      - Alibaba Cloud ACP: goals/ACP.md
+      - acp/index.md
   - Writing:
       - All Posts: writing/index.md
       - What is an Agent?: writing/what-is-an-agent.md
