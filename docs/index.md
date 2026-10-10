@@ -46,7 +46,7 @@ title: 首页
 
     结合工作，用英文输出关于 LLM Agent 的文章。
 
-    [:octicons-arrow-right-24: 去写作区](writing/index.md)
+    [:octicons-arrow-right-24: 去写作区](ielts/README.md)
 
 </div>
 
