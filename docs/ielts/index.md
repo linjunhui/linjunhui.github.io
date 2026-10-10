@@ -286,4 +286,4 @@ For every mistake — **especially in Writing and Speaking** — don't just re-r
 - Official site: <https://www.ielts.org/>
 - Mock tests & practice: <https://takeielts.britishcouncil.org/>
 - Speaking input: **Keith Speaking Academy** (YouTube)
-- Writing output: under `docs/ielts/` (see [`README.md`](README.md) for naming rules)
+- Writing output: under `docs/ielts/` (see [`about.md`](about.md) for naming rules)
