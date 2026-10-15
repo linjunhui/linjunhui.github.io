@@ -9,6 +9,7 @@ Notes on thinking models, learning methods and self-iteration.
 | 2026-10-08 | [Feynman Technique](learning-ability_Feynman-Technique.md) | Learning Methods |
 | 2026-10-08 | [Simon Learning Method](learning-ability_Simon-learning-method.md) | Learning Methods |
 | 2026-10-08 | [SMART Principle](SMART-Principle.md) | Deep Thinking & Decision-Making |
+| 2026-10-10 | [Eisenhower Matrix](Eisenhower-Matrix.md) | Time Management & Decision-Making |
 
 ---
 
